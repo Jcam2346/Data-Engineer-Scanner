@@ -15,7 +15,7 @@ jobs = scrape_jobs(
     location="Sydney NSW",
     results_wanted=15,
     # only needed for indeed / glassdoor
-    country_indeed='Australia',
+    country_indeed='Australia'#,
     #proxy="" #must be a string in the format "ip_address:port" starting with http:// or https://
 )
 print(f"Found {len(jobs)} jobs")
