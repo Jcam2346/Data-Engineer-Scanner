@@ -1,6 +1,7 @@
-pip install pandas
-pip install numpy
-pip install tensorflow
+pandas
+numpy
+tensorflow
+python-jobspy
 
-docker pull tensorflow/tensorflow:latest
-docker run -it -p 8888:8888 tensorflow/tensorflow:latest-jupyter
+# docker pull tensorflow/tensorflow:latest
+# docker run -it -p 8888:8888 tensorflow/tensorflow:latest-jupyter
