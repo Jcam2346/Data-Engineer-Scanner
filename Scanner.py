@@ -3,12 +3,11 @@ import numpy as np
 import os
 import tensorflow as tf
 
-# Print the current working directory
 print(os.getcwd())
 
+# Scrape jobs from indeed and glassdoor
 from jobspy import scrape_jobs
 
-# Scrape jobs from indeed and glassdoor
 jobs = scrape_jobs(
     site_name=["indeed", "glassdoor"],
     search_term="Data engineer",
@@ -16,7 +15,7 @@ jobs = scrape_jobs(
     results_wanted=15,
     # only needed for indeed / glassdoor
     country_indeed='Australia'#,
-    #proxy="" #must be a string in the format "ip_address:port" starting with http:// or https://
+    #proxy="" #must be a string in starting with http:// or https:// and may end in format "ip_address:port" 
 )
 print(f"Found {len(jobs)} jobs")
 print(jobs.head())
