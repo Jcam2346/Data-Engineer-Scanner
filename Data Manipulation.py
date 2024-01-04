@@ -1,9 +1,12 @@
 import pandas as pd
 import os
 import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
-from nltk.tokenize import word_tokenize, MWETokenizer
+#first run only:
+#nltk.download('punkt')
+#nltk.download('stopwords')
+#
+from nltk.tokenize import word_tokenize
+from nltk.tokenize import MWETokenizer
 from nltk.corpus import stopwords
 from wordcloud import WordCloud
 
@@ -35,13 +38,15 @@ for index, row in new_df.iterrows():
     tokenized_desc = row['Job Description'].lower()
     tokenized_desc = word_tokenize(tokenized_desc)
     #handle multi-word tokenization
+    #add more multiword tokens here
     tokenizer = MWETokenizer([('power', 'bi'),('data', 'science'),('data', 'scientist'),('data', 'engineer'),('data', 'analyst'),('data', 'analyst'),('data', 'analytics'),('data', 'analysis'),('data', 'visualization'),('data', 'visualisation'),('data', 'visualizations'),('data', 'visualisations'),('data', 'warehouse'),('data', 'warehousing'),('data', 'warehoused'),('data', 'warehouses'),('data', 'warehouses'),('data', 'warehouser'),('data', 'warehousers')])
-    tokenized_desc = tokenizer(tokenized_desc)
+    tokenized_desc = tokenizer.tokenize(tokenized_desc)
     #remove duplicates
     tokenized_desc = list(set(tokenized_desc))
     #Remove stopwords & numbers/punctuation
     tokenized_desc = [word for word in tokenized_desc if word not in stopwords.words('english')]
     #add it to the dataframe
-    row.tokenized_desc = tokenized_desc
+    row['tokenized_desc'] = tokenized_desc
+    print("Tokenizing row:", index)
 
-print(new_df['tokenized_desc'].head(15))
+print(new_df['tokenized_desc'][1:4])
