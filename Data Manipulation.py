@@ -1,5 +1,11 @@
 import pandas as pd
 import os
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+from nltk.tokenize import word_tokenize, MWETokenizer
+from nltk.corpus import stopwords
+from wordcloud import WordCloud
 
 # Read the CSV file into a pandas dataframe
 print(os.getcwd())
@@ -38,4 +44,4 @@ for index, row in new_df.iterrows():
     #add it to the dataframe
     row.tokenized_desc = tokenized_desc
 
-head(new_df['tokenized_desc'], 15)
+print(new_df['tokenized_desc'].head(15))

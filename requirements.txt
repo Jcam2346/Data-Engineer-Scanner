@@ -2,6 +2,9 @@ pandas
 numpy
 tensorflow
 python-jobspy
+wordcloud
+nltk
+
 
 # docker pull tensorflow/tensorflow:latest
 # docker run -it -p 8888:8888 tensorflow/tensorflow:latest-jupyter
